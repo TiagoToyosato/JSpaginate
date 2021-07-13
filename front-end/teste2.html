@@ -27,15 +27,8 @@
 
 <body>
     <div id="buttons">
-        <!-- <input type="button" class="btn btn-primary" value="1" onclick="pagina(1, 10)">
-        <input type="button" value="2" onclick="pagina(2, 10)">
-        <input type="button" value="3" onclick="pagina(3, 10)">
-        <input type="button" value="4" onclick="pagina(4, 10)">
-        <input type="button" value="5" onclick="pagina(5, 10)"> -->
+
     </div>
-    <!-- <div id=lista>
-        Resultado
-    </div> -->
 
     <ul id='lista' class="list-group">
 
@@ -64,6 +57,15 @@
                 for (var i = 0; i < page; i++) {
                     btn.innerHTML += `<input type="button" class="btn btn-primary" value="${i + 1}" onclick="pagina(${i + 1}, ${limit})">`
                 }
+
+                var list = document.querySelector("ul#lista")
+                list.innerHTML = "";
+                var start = (1 - 1) * limit;
+                var end = 1 * limit;
+                var result = res.slice(start, end)
+                result.forEach(element => {
+                    $("#lista").append('<li class="list-group-item">' + element.name + '</li>')
+                });
 
                 // Funciona com append também
                 // for (var i = 0; i < page; i++) {
